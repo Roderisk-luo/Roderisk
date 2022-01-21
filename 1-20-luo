@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	for (int i = 1; i <= 9; i++)
+	{
+
+		for (int j = 1; j <= i; j++)
+		{
+			cout << j << "*" << i << "=" << j * i << "  ";
+		}
+		cout << endl;
+	}
+	int score = 0;
+	cout << "请输入的身高" << endl;
+	cin >> score;
+	cout << "你的身高为" << score << "cm" << endl;
+	if (score > 180)
+	{
+		cout << "恭喜你你是一个高个子" << endl;
+	}
+	else { cout << "很遗憾你是一个矮子" << endl; }
+
+	system("pause");
+	return 0;
+}
