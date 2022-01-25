@@ -1,0 +1,52 @@
+#include<iostream>
+#include<string>
+#include<ctime>
+using namespace std;
+struct students //老师结构体
+{
+	string sname;
+	int score;
+};
+struct teacher //学生结构体
+{
+	string tname;
+	struct students arr[5];
+};
+void FZ(struct teacher tarry[], int len)//给老师赋值
+{
+	string nameseed = "ABCDE";
+	for (int i = 0; i < len; i++)
+	{
+		tarry[i].tname = "teacher_";
+		tarry[i].tname += nameseed[i];
+		for (int j = 0; j < 5; j++)//给学生赋值
+		{
+			tarry[i].arr[j].sname = "Student_";
+			tarry[i].arr[j].sname += nameseed[j];
+			int random = rand() % 61 + 40;
+			tarry[i].arr[j].score = random;
+		}
+	}
+}
+void printall(struct teacher tarry[],int len)//打印
+{
+	for (int i = 0; i < len; i++)
+	{
+		cout << "老师姓名  " << tarry[i].tname << endl;
+		for (int j = 0; j < 5; j++)
+		{
+			cout << "\t学生姓名  " << tarry[i].arr[j].sname << "  学生分数为  " << tarry[i].arr[j].score << endl;
+		}
+    }
+}
+int main()
+{
+	srand((unsigned int)time(NULL));//随机数种子
+	struct teacher tarry[3];//创建老师的数组
+	int len = sizeof(tarry) / sizeof(tarry[0]);
+	FZ(tarry, len);
+	//开始打印老师和学生的信息
+	printall( tarry,  len);
+	system("pause");
+	return 0;
+}
