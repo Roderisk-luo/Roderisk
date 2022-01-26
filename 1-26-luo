@@ -1,0 +1,126 @@
+#include <iostream> 
+#include<string>
+#define MAX 1000
+
+using namespace std;
+struct persen//联系人的结构体
+{
+	string m_name;
+	string m_sex;
+	int m_age;
+	string m_num;
+	string m_addr;
+};
+struct addressbooks//通讯录的结构体
+{
+	struct persen persenarr[MAX];
+	int m_size;
+};
+void addperson(addressbooks* abs)//添加联系人
+{
+	//判断通讯录是否已满，满了就无法添加
+	if (abs->m_size == MAX)
+	{
+		cout << "通讯录已满，无法添加！" << endl;
+		return;
+	}
+	else
+	{
+		//添加具体联系人
+		//姓名
+		string name;
+		cout << "请输入姓名："<<endl;
+		cin >> name;
+		abs->persenarr[abs->m_size].m_name = name;
+		//性别
+		cout << "请输入性别：" << endl;
+		cout << "1---男" << endl;
+		cout << "2---女" << endl;
+		int sex = 0;
+		while (true)
+		{
+			cin >> sex;
+			if (sex == 1 || sex == 2)
+			{
+				abs->persenarr[abs->m_size].m_sex;
+			}
+			else
+			{
+				cout << "输入有误，请重新输入。" << endl;
+			}
+			break;
+		}
+		
+		//年龄
+		cout << "请输入年龄" << endl;
+		int age = 0;
+		cin >> age;
+		abs->persenarr[abs->m_size].m_age=age;
+
+		//电话
+		cout << "请输入联系电话" << endl;
+		string  num = 0;
+		cin >> num;
+		abs->persenarr[abs->m_size].m_num=num;
+
+		//地址 
+		cout << "请输入家庭住址" << endl;
+		string addrd = 0;
+		cin >> addrd;
+		abs->persenarr[abs->m_size].m_addr=addrd;
+		//更新通讯录人数
+		abs->m_size++;
+		cout << "添加成功" << endl;
+		system("pause");
+		system("cls");
+	}
+}
+void showMenu()//创建菜单功能
+{
+	cout << "**************************" << endl;
+	cout << "*****  1.添加联系人  *****" << endl;
+	cout << "*****  2.显示联系人  *****" << endl;
+	cout << "*****  3.删除联系人  *****" << endl;
+	cout << "*****  4.查找联系人  *****" << endl;
+	cout << "*****  5.修改联系人  *****" << endl;
+	cout << "*****  6.清空联系人  *****" << endl;
+	cout << "*****  0.清空通讯录  *****" << endl;
+	cout << "**************************" << endl;
+}
+int main()
+{
+	addressbooks abs; //创建通讯录的变量
+	abs.m_size = 0; //给通讯录中的变量初始化，使通讯录人数为0
+
+	int select = 0;
+	while (true)
+	{
+		showMenu();
+		cin >> select;
+		switch (select)
+		{
+		case 1:
+			addperson(&abs);//利用地址传递可以修饰实参，向里添加联系人
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 0:
+			cout << "欢迎下次使用" << endl;
+			system("pause");
+			return 0;
+			break;
+		default:
+			break;
+		}
+	}
+  system（"pause"）;
+  return 0;
+}
