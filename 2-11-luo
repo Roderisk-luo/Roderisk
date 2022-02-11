@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+#include <string>
+/*const double PI = 3.14;
+class Circle {
+	//访问权限
+public://公共权限
+	//属性
+	int m_r;
+	//行为
+	//获取圆的周长
+	double calculateZC()
+	{
+		return 2 * PI * m_r;
+	}
+};//圆类
+int main()
+{
+	//对象
+	//实例化 通过类创建一个对象 
+	Circle c1;
+	c1.m_r = 10;
+	cout << "圆的周长为：   " << c1.calculateZC() << endl;
+}*/
+
+class student {
+public:
+	string m_name;
+	int m_id;
+	void showStudent()
+	{
+		cout << "姓名：  " << m_name << "学号：  " << endl;
+	}
+};
+int main()
+{
+	student s1;
+	s1.m_name = "罗昊";
+	s1.m_id = 21110200047;
+	s1.showStudent();
+	system("pause");
+	return 0;
+}
