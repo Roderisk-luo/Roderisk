@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+#include <string>
+class Point
+{
+public:
+void setX(int x)
+{
+m_X = x;
+}
+int getX()
+{
+	return m_X;
+}
+void setY(int y)
+{
+	m_Y = y;
+}
+int getY()
+{
+	return m_Y;
+}
+private:
+int m_X;
+int m_Y;
+
+};
+
+class Circle
+{
+public:
+void setR(int r)
+{
+	m_R = r;
+}
+int getR()
+{
+	return m_R;
+}
+void setCenter(Point center)
+{
+	m_Center;
+}
+Point getCenter()
+{
+return m_Center;
+}
+
+private:
+int m_R;//半径
+Point m_Center;//原点
+};
+void isInCircle(Circle& c, Point& p)//两点之间的平方
+{
+int distance = (c.getCenter().getX() - p.getX()) * (c.getCenter().getX() - p.getX()) + (c.getCenter().getY() * p.getY() * c.getCenter().getY() * p.getY());
+int rDistance = c.getR() * c.getR();
+if (rDistance == distance)
+{
+	cout << "点在圆上" << endl;
+}
+else if (rDistance > distance)
+{
+	cout << "点在圆内" << endl;
+}
+else if (rDistance < distance)
+{
+	cout << "点在圆外" << endl;
+}
+}
+int main()
+{
+		
+	
+	Circle c;
+	c.setR(10);
+	Point center;
+	center.setX(10);
+	center.setY(0);
+	c.setCenter(center);
+
+	Point p;
+	p.setX(10);
+	p.setY(9);
+
+	isInCircle(c, p);
+	system("pause");
+	return 0;
+}
